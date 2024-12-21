@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name = "drivers")
 public class Driver {
@@ -20,6 +22,17 @@ public class Driver {
     @Min(value = 18)
     @Max(value = 99)
     private int age;
+
+    @ManyToOne
+    private Car car;
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
 
     public long getId() {
         return id;

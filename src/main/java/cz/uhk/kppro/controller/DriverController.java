@@ -1,6 +1,7 @@
 package cz.uhk.kppro.controller;
 
 import cz.uhk.kppro.model.Driver;
+import cz.uhk.kppro.service.CarService;
 import cz.uhk.kppro.service.DriverService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DriverController {
 
     private DriverService driverService;
+    private CarService carService;
 
     @Autowired
-    public DriverController(DriverService driverService) {
+    public DriverController(DriverService driverService, CarService carService) {
         this.driverService = driverService;
+        this.carService = carService;
     }
 
     @GetMapping("/")
@@ -44,6 +47,7 @@ public class DriverController {
         Driver driver = driverService.getDriverById(id);
         if(driver != null) {
             model.addAttribute("driver", driver);
+            model.addAttribute("cars", carService.getAllCars());
             model.addAttribute("edit", true);
             return "driver_edit";
         }
@@ -53,6 +57,7 @@ public class DriverController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("driver", new Driver());
+        model.addAttribute("cars", carService.getAllCars());
         model.addAttribute("edit", false);
         return "driver_edit";
     }

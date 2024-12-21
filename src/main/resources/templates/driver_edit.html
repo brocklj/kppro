@@ -16,6 +16,10 @@
     Age: <input type="text" th:field="*{age}">
     <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
     <br>
+    <select th:field="*{car}">
+        <option th:each="c: ${cars}" th:text="${c.licencePlate}" th:value="${c.id}"></option>
+    </select>
+    <br>
 
     <input type="submit" value="Save">
 
