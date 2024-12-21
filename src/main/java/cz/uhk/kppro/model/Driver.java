@@ -29,11 +29,11 @@ public class Driver {
         this.id = id;
     }
 
-    public @NotBlank(message = "seš marnej") @Size(min = 7, max = 7) String getName() {
+    public @NotBlank(message = "seš marnej") String getName() {
         return name;
     }
 
-    public void setName(@NotBlank(message = "seš marnej") @Size(min = 7, max = 7) String name) {
+    public void setName(@NotBlank(message = "seš marnej") String name) {
         this.name = name;
     }
 
