@@ -1,12 +1,18 @@
 package cz.uhk.kppro.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+@Entity
+@Table(name = "cars")
 public class Car {
-    private int id = -1;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @NotBlank(message = "seš marnej")
     @Size(min = 7, max = 7)
@@ -17,14 +23,6 @@ public class Car {
     @Max(value = 7)
     private int numberOfSeats;
 
-    public Car(String color, int numberOfSeats, String licencePlate) {
-        this.color = color;
-        this.numberOfSeats = numberOfSeats;
-        this.licencePlate = licencePlate;
-    }
-
-    public Car(){}
-
     public String getLicencePlate() {
         return licencePlate;
     }
@@ -33,11 +31,11 @@ public class Car {
         this.licencePlate = licencePlate;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

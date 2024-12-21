@@ -13,8 +13,8 @@
 
 <ul>
 
-    <li th:each="car, iter: ${cars}">
-        <a th:text="${car.licencePlate}" th:href="@{'/cars/detail/' + ${iter.index}}">
+    <li th:each="car: ${cars}">
+        <a th:text="${car.licencePlate}" th:href="@{'/cars/detail/' + ${car.id}}">
 
         </a>
     </li>
