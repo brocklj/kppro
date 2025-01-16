@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail of building</title>
+</head>
+<body>
+
+<h1>Detail of building:</h1>
+
+<a th:href="@{'/buildings/delete/' + ${building.id}}">DELETE building</a>
+<br>
+<a th:href="@{'/buildings/edit/' + ${building.id}}">EDIT building</a>
+
+<br>
+<br>
+<b>Name:</b> <span th:text="${building.name}"></span>
+<br>
+<b>Address:</b> <span th:text="${building.address}"></span>
+<br>
+<b>Number Of Rooms:</b> <span th:text="${building.numberOfRooms}"></span>
+
+</body>
+</html>
