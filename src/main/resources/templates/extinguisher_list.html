@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of All extinguishers</title>
+</head>
+<body>
+
+<h1>List of all extinguishers:</h1>
+
+<a th:href="@{'/extinguishers/create'}">CREATE NEW EXTINGUISHER</a>
+<br>
+
+<ul>
+
+    <li th:each="extinguisher: ${extinguishers}">
+        <a th:text="${extinguisher.serial}" th:href="@{'/extinguishers/detail/' + ${extinguisher.id}}">
+
+        </a>
+    </li>
+
+</ul>
+
+</body>
+</html>

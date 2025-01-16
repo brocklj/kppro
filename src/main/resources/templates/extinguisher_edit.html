@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${edit ? 'Edit extinguisher' : 'Create New extinguisher'}"></title>
+</head>
+<body>
+
+<h1 th:text="${edit ? 'Edit extinguisher' : 'Create New extinguisher'}"></h1>
+
+<form method="post" th:action="@{'/extinguishers/save'}" th:object="${extinguisher}">
+    <input type="hidden" th:field="*{id}">
+    Serial no.: <input type="text" th:field="*{serial}">
+    <span th:if="${#fields.hasErrors('serial')}" th:errors="*{serial}"></span>
+    <br>
+    Expiration: <input type="date" th:field="*{expirationDate}">
+    <span th:if="${#fields.hasErrors('expirationDate')}" th:errors="*{expirationDate}"></span>
+    <br>
+    <select th:field="*{building}">
+        <option th:each="c: ${buildings}" th:text="${c.name}" th:value="${c.id}"></option>
+    </select>
+    <br>
+
+    <input type="submit" value="Save">
+
+</form>
+
+</body>
+</html>

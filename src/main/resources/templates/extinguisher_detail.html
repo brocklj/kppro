@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail of Extinguisher</title>
+</head>
+<body>
+
+<h1>Detail of Extinguisher:</h1>
+
+<a th:href="@{'/extinguishers/delete/' + ${extinguisher.id}}">DELETE Extinguisher</a>
+<br>
+<a th:href="@{'/extinguishers/edit/' + ${extinguisher.id}}">EDIT Extinguisher</a>
+
+<br>
+<br>
+<b>Inventory no.:</b> <span th:text="${extinguisher.serial}"></span>
+<br>
+<b>Expiration:</b> <span th:text="${extinguisher.expirationDate}"></span>
+<br>
+<b>Building:</b> <span th:text="${extinguisher?.building?.name}"></span>
+
+</body>
+</html>
