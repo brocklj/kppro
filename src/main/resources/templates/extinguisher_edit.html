@@ -7,7 +7,8 @@
 <body>
 
 <h1 th:text="${edit ? 'Edit extinguisher' : 'Create New extinguisher'}"></h1>
-
+<a th:href="@{'/'}">Home</a>
+<br>
 <form method="post" th:action="@{'/extinguishers/save'}" th:object="${extinguisher}">
     <input type="hidden" th:field="*{id}">
     Serial no.: <input type="text" th:field="*{serial}">
@@ -16,8 +17,14 @@
     Expiration: <input type="date" th:field="*{expirationDate}">
     <span th:if="${#fields.hasErrors('expirationDate')}" th:errors="*{expirationDate}"></span>
     <br>
+    <label>Building: </label>
     <select th:field="*{building}">
         <option th:each="c: ${buildings}" th:text="${c.name}" th:value="${c.id}"></option>
+    </select>
+    <br>
+    <label>Producer: </label>
+    <select th:field="*{producer}">
+        <option th:each="c: ${producers}" th:text="${c.name}" th:value="${c.id}"></option>
     </select>
     <br>
 

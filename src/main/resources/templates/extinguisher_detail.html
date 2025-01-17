@@ -7,7 +7,8 @@
 <body>
 
 <h1>Detail of Extinguisher:</h1>
-
+<a th:href="@{'/'}">Home</a>
+<br>
 <a th:href="@{'/extinguishers/delete/' + ${extinguisher.id}}">DELETE Extinguisher</a>
 <br>
 <a th:href="@{'/extinguishers/edit/' + ${extinguisher.id}}">EDIT Extinguisher</a>
@@ -19,6 +20,8 @@
 <b>Expiration:</b> <span th:text="${extinguisher.expirationDate}"></span>
 <br>
 <b>Building:</b> <span th:text="${extinguisher?.building?.name}"></span>
+<br>
+<b>Producer:</b> <span th:text="${extinguisher?.producer?.name}"></span>
 
 </body>
 </html>

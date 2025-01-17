@@ -2,6 +2,7 @@ package cz.uhk.kppro.controller;
 
 import cz.uhk.kppro.model.Extinguisher;
 import cz.uhk.kppro.service.BuildingService;
+import cz.uhk.kppro.service.CompanyService;
 import cz.uhk.kppro.service.ExtinguisherService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,13 @@ public class ExtinguisherController {
 
     private ExtinguisherService extinguisherService;
     private BuildingService buildingService;
+    private CompanyService companyService;
 
     @Autowired
-    public ExtinguisherController(ExtinguisherService extinguisherService, BuildingService buildingService) {
+    public ExtinguisherController(ExtinguisherService extinguisherService, BuildingService buildingService, CompanyService companyService) {
         this.extinguisherService = extinguisherService;
         this.buildingService = buildingService;
+        this.companyService = companyService;
     }
 
     @GetMapping("/")
@@ -48,6 +51,7 @@ public class ExtinguisherController {
         if(extinguisher != null) {
             model.addAttribute("extinguisher", extinguisher);
             model.addAttribute("buildings", buildingService.getAllbuildings());
+            model.addAttribute("producers", companyService.getAllCompanies());
             model.addAttribute("edit", true);
             return "extinguisher_edit";
         }
@@ -58,6 +62,7 @@ public class ExtinguisherController {
     public String create(Model model) {
         model.addAttribute("extinguisher", new Extinguisher());
         model.addAttribute("buildings", buildingService.getAllbuildings());
+        model.addAttribute("producers", companyService.getAllCompanies());
         model.addAttribute("edit", false);
         return "extinguisher_edit";
     }

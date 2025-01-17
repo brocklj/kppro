@@ -31,6 +31,17 @@ public class Extinguisher {
         this.building = building;
     }
 
+    @ManyToOne
+    private Company producer;
+
+    public Company getProducer() {
+        return producer;
+    }
+
+    public void setProducer(Company building) {
+        this.producer = building;
+    }
+
     public long getId() {
         return id;
     }

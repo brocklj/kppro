@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail of company</title>
+</head>
+<body>
+
+<h1>Detail of company:</h1>
+
+<a th:href="@{'/'}">Home</a>
+<br>
+<a th:href="@{'/companies/delete/' + ${company.id}}">DELETE company</a>
+<br>
+<a th:href="@{'/companies/edit/' + ${company.id}}">EDIT company</a>
+
+<br>
+<br>
+<b>Name:</b> <span th:text="${company.name}"></span>
+<br>
+<b>Address:</b> <span th:text="${company.address}"></span>
+<br>
+<b>Number Of Employees:</b> <span th:text="${company.numberOfEmployees}"></span>
+
+</body>
+</html>

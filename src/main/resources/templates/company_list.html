@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of All companies</title>
+</head>
+<body>
+
+<h1>List of all companies:</h1>
+<a th:href="@{'/'}">Home</a>
+<br>
+<a th:href="@{'/companies/create'}">CREATE NEW company</a>
+<br>
+
+<ul>
+
+    <li th:each="company: ${companies}">
+        <a th:text="${company.name}" th:href="@{'/companies/detail/' + ${company.id}}">
+
+        </a>
+    </li>
+
+</ul>
+
+</body>
+</html>
